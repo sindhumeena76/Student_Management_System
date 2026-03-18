@@ -1,0 +1,345 @@
+/* =====================
+ROOT COLORS (THEME)
+===================== */
+:root {
+--bg-main: #8f5edf;
+--bg-gradient: linear-gradient(135deg, #bc16e6, #639dcc);
+--bg-card: rgba(62, 9, 73, 0.8);
+
+--primary: #2b2ed8;
+--secondary: #410b58;
+--accent: #22c55e;
+--danger: #ef4444;
+
+--text-main: #d0d5db;
+--text-muted: #a1afaf;
+}
+
+/* =====================
+GLOBAL
+===================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  }
+
+body {
+background: var(--bg-gradient);
+color: var(--text-main);
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+/* =====================
+APP
+===================== */
+.app {
+padding: 20px;
+animation: fadeIn 0.6s ease;
+}
+
+/* =====================
+HEADER
+===================== */
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 18px;
+}
+
+.brand {
+display: flex;
+gap: 12px;
+align-items: center;
+}
+
+h1 {
+font-size: 24px;
+font-weight: 800;
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.lead {
+font-size: 13px;
+color: var(--text-muted);
+}
+
+/* =====================
+PANELS (GLASS)
+===================== */
+.panel {
+background: var(--bg-card);
+backdrop-filter: blur(12px);
+border-radius: 16px;
+padding: 16px;
+border: 1px solid rgba(99, 102, 241, 0.2);
+box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+transition: all 0.3s ease;
+}
+
+.panel:hover {
+transform: translateY(-4px);
+box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+}
+
+main {
+display: grid;
+grid-template-columns: 260px 1fr;
+gap: 16px;
+}
+
+/* =====================
+BUTTONS
+===================== */
+.btn {
+background: #193a69;
+border: none;
+padding: 10px 14px;
+border-radius: 10px;
+color: white;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.btn:hover {
+transform: scale(1.05);
+background: #146ff0;
+}
+
+.btn.primary {
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.btn.primary:hover {
+box-shadow: 0 0 25px rgba(139,92,246,0.7);
+}
+
+.icon-btn {
+background: transparent;
+border: none;
+cursor: pointer;
+font-size: 16px;
+transition: 0.2s;
+}
+
+.icon-btn:hover {
+transform: scale(1.2);
+}
+
+/* =====================
+INPUTS
+===================== */
+input, select {
+background: #1e293b;
+border: 1px solid #334155;
+color: white;
+padding: 8px;
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+outline: none;
+border-color: var(--primary);
+box-shadow: 0 0 12px var(--primary);
+}
+
+/* =====================
+SEARCH
+===================== */
+.search {
+display: flex;
+align-items: center;
+gap: 8px;
+background: #1e293b;
+padding: 6px 10px;
+border-radius: 10px;
+}
+
+/* =====================
+TABLE
+===================== */
+.table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 10px;
+}
+
+th {
+text-align: left;
+padding: 10px;
+color: var(--text-muted);
+}
+
+td {
+padding: 10px;
+}
+
+tr {
+transition: all 0.3s ease;
+}
+
+tr:hover {
+background: rgba(99, 102, 241, 0.15);
+transform: scale(1.01);
+}
+
+/* =====================
+ROW ANIMATION
+===================== */
+@keyframes fadeSlideIn {
+from {
+opacity: 0;
+transform: translateY(10px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.row-enter {
+animation: fadeSlideIn 0.4s ease;
+}
+
+/* =====================
+BADGES
+===================== */
+.badge {
+padding: 6px 10px;
+border-radius: 999px;
+font-size: 12px;
+font-weight: 600;
+}
+
+.badge.active {
+background: rgba(34,197,94,0.2);
+color: var(--accent);
+}
+
+.badge.inactive {
+background: rgba(239,68,68,0.2);
+color: var(--danger);
+}
+
+/* =====================
+MODAL
+===================== */
+.modal-backdrop {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+display: none;
+justify-content: center;
+align-items: center;
+background: rgba(0,0,0,0.6);
+backdrop-filter: blur(6px);
+}
+
+.modal {
+background: #1e293b;
+padding: 20px;
+border-radius: 14px;
+width: 400px;
+max-width: 90%;
+transform: scale(0.8);
+opacity: 0;
+transition: all 0.3s ease;
+}
+
+.modal.show {
+transform: scale(1);
+opacity: 1;
+}
+
+.modal-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+}
+
+/* =====================
+STATS
+===================== */
+.stats {
+display: flex;
+justify-content: space-between;
+margin-bottom: 16px;
+}
+
+.stat strong {
+font-size: 20px;
+}
+
+/* =====================
+UTILITIES
+===================== */
+.flex {
+display: flex;
+align-items: center;
+}
+
+.muted {
+color: var(--text-muted);
+}
+
+.small {
+font-size: 12px;
+}
+
+/* =====================
+EMPTY
+===================== */
+.empty {
+text-align: center;
+padding: 20px;
+color: var(--text-muted);
+}
+
+.pill {
+background: var(--primary);
+border: none;
+padding: 6px 10px;
+border-radius: 999px;
+color: white;
+cursor: pointer;
+}
+
+/* =====================
+AVATAR EFFECT
+===================== */
+td div div:first-child {
+transition: all 0.3s ease;
+}
+
+tr:hover td div div:first-child {
+transform: rotate(5deg) scale(1.1);
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+/* =====================
+ANIMATIONS
+===================== */
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+img{
+  display: inline;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+
+}
+

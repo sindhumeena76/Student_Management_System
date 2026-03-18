@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Student Management — Local Storage</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS/student.css">
+</head>
+<body>
+  <div class="app" role="application" aria-label="Student management app">
+    <header>
+      <div class="brand">
+        <div class="logo"><img src="Images/logo.jpg" alt="logo"></div>
+        <div>
+          <h1>Student Management</h1>
+          <p class="lead">student manager </p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="search" title="Search students">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35"/><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6"/></svg>
+          <input id="search" placeholder="Search name, roll, dept..." />
+        </div>
+        <div class="top-actions">
+          <button class="btn" id="importBtn">Import CSV</button>
+          <button class="btn" id="exportBtn">Export CSV</button>
+          <button class="btn primary" id="addBtn">+ Add Student</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- left: stats & filters -->
+      <aside class="panel" aria-label="controls">
+        <div class="stats">
+          <div class="stat">
+            <span class="muted small">Total students</span>
+            <strong id="totalCount">0</strong>
+          </div>
+          <div class="stat">
+            <span class="muted small">Active</span>
+            <strong id="activeCount">0</strong>
+          </div>
+        </div>
+
+        <div class="filters">
+          <div>
+            <label>Sort by</label>
+            <select id="sortSelect">
+              <option value="name-asc">Name ↑</option>
+              <option value="name-desc">Name ↓</option>
+              <option value="roll-asc">Roll ↑</option>
+              <option value="roll-desc">Roll ↓</option>
+            </select>
+          </div>
+          <div>
+            <label>Department</label>
+            <select id="deptFilter">
+              <option value="">All</option>
+            </select>
+          </div>
+          <div>
+            <label>Minimum Grade</label>
+            <input id="minGrade" type="range" min="0" max="100" value="0" />
+            <div class="small muted">≥ <span id="minGradeValue">0</span></div>
+          </div>
+          <div>
+            <button class="btn" id="clearBtn">Clear Storage</button>
+          </div>
+        </div>
+        <footer>
+          <div class="small muted">Local storage only</div>
+          <div class="small muted">v1.0</div>
+        </footer>
+      </aside>
+
+      <!-- right: list -->
+      <section class="panel list-wrap" aria-label="students list">
+        <div class="flex" style="justify-content:space-between">
+          <div class="muted small">Showing students</div>
+          <div class="muted small" id="showingFilter">—</div>
+        </div>
+
+        <table class="table" aria-live="polite">
+          <thead>
+            <tr>
+              <th style="width:240px">Student</th>
+              <th>Roll</th>
+              <th>Dept</th>
+              <th>Grade</th>
+              <th style="width:140px">Status</th>
+              <th style="text-align:right;width:140px">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- rows inserted here -->
+          </tbody>
+        </table>
+
+        <div id="empty" class="empty" style="display:none">
+          No students yet. Click <button class="pill" id="emptyAdd">Add student</button> to create one.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal form -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <form class="modal" id="studentForm" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">Add Student</h3>
+      <div class="modal-grid" style="margin-top:10px">
+        <div>
+          <label for="name">Full name</label>
+          <input id="name" required minlength="3" placeholder="e.g., Meena S" />
+        </div>
+        <div>
+          <label for="roll">Roll no</label>
+          <input id="roll" required placeholder="e.g., 18CS102" />
+        </div>
+
+        <div>
+          <label for="dept">Department</label>
+          <input id="dept" required placeholder="e.g., CSE" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="example@mail.com" />
+        </div>
+
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" placeholder="+91 9XXXXXXXXX" />
+        </div>
+        <div>
+          <label for="grade">Grade (%)</label>
+          <input id="grade" type="number" min="0" max="100" placeholder="e.g., 85" />
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;gap:12px;margin-top:14px">
+        <div class="small muted">Tip: Press <kbd>Esc</kbd> to close</div>
+        <div style="display:flex;gap:8px">
+          <button type="button" class="btn" id="cancelModal">Cancel</button>
+          <button type="submit" class="btn primary" id="saveBtn">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  
+
+<script src="JS/student.js"></script>
+</body>
+</html>

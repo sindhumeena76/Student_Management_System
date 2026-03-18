@@ -1,0 +1,216 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Body Animation Background */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-size: 200% 200%;
+    animation: gradientMove 6s infinite alternate;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide Down */
+@keyframes slideDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Login Box */
+.login-box {
+    background: #fff;
+    padding: 30px;
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Title Animation */
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+    animation: slideDown 0.6s ease;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Input Hover + Focus */
+input:hover {
+    transform: scale(1.02);
+}
+
+input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 8px #667eea;
+    transform: scale(1.03);
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button Hover Animation */
+button:hover {
+    background: #5a67d8;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Click Effect */
+button:active {
+    transform: scale(0.97);
+}
+
+/* Error */
+.error {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Dashboard Container */
+.container {
+    background: #fff;
+    padding: 20px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.8s ease;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    animation: slideDown 0.6s ease;
+}
+
+/* Logout Button */
+.logout {
+    background: #e53e3e;
+    float: right;
+    width: auto;
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.logout:hover {
+    background: #c53030;
+    transform: scale(1.05);
+}
+
+/* Form */
+form {
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    animation: fadeIn 1.2s ease;
+}
+
+thead {
+    background: #667eea;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+/* Row Hover Animation */
+tr:hover {
+    background: #f1f1f1;
+    transform: scale(1.01);
+}
+
+/* Delete Button */
+.delete {
+    background: #e53e3e;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.delete:hover {
+    background: #c53030;
+    transform: scale(1.1);
+}
+
+/* Smooth Appear for Rows */
+tbody tr {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+
+    table, thead, tbody, th, td, tr {
+        font-size: 12px;
+    }
+}
